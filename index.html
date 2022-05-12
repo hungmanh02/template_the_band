@@ -7,6 +7,7 @@
     <title>The Band</title>
     <link rel="icon" href="./assets/img/pngtree-music-note-wing-icon-design-template-vector-isolated-png-image_719973.jpg" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="stylesheet" href="./assets/font_icon/themify-icons/themify-icons.css">
 </head>
 <body>
@@ -19,7 +20,7 @@
                   <li><a href="#tour">Tour</a></li>
                   <li><a href="#contact">Contact</a></li>
                   <li>
-                      <a href="">
+                      <a href="#">
                           More
                           <i class="nav-arrow-down ti-angle-down"></i>
                         
@@ -32,11 +33,14 @@
                     </li>
               </ul>
               <!-- End :Nav -->
-              <!-- Begin :Seach-button -->
+              <!-- mobile-menu-button -->
+              <div id="mobile-menu" class="mobile-menu-btn">
+                <i class="ti-menu menu-icon"></i>
+            </div>
+              <!-- Seach-button -->
               <div class="search-btn">
                   <i class="search-icon ti-search"></i>
               </div>
-              <!-- End :Seach-button -->
          </div>
          <div id="slider">
              <div class="text-slider">
@@ -247,6 +251,31 @@
         modalContainer.addEventListener('click',function(event){
             event.stopPropagation()
         })
+    </script>
+    <script>
+        var header=document.getElementById('header')
+        var mobileMenu=document.getElementById('mobile-menu')
+        var headerHeight=header.clientHeight;
+        // đóng mở mobile menu
+        mobileMenu.onclick = function(){
+            var isClosed=header.clientHeight === headerHeight;
+            if(isClosed){
+                header.style.height='auto';
+            }else{
+                header.style.height=null;
+            }
+        }
+        //tự động đóng khi chọn menu
+        var menuItems=document.querySelectorAll('#nav li a[href*="#"]');
+        // console.log(menuItems);
+        for( var i = 0; i< menuItems.length ; i++){
+            var menuItem=menuItems[i];
+            menuItem.onclick = function () {
+                header.style.height=null;
+            }
+        }
+        
+        //mobile-menu
     </script>
 </body>
 </html>

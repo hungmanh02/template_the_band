@@ -89,6 +89,7 @@ html{
     height: 46px;
     background-color: #000;
     z-index: 1;
+    overflow: hidden;
    
 }
 #nav{
@@ -140,15 +141,31 @@ font-size: 14px;
     padding: 0px 16px;
     line-height: 38px;
 }
+
+#header .mobile-menu-btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+#header .mobile-menu-btn,
 #header .search-btn{
     float: right;
     padding: 0 21px;
-    cursor: pointer;
+    
     
 }
+#header .mobile-menu-btn:hover{
+    background-color: #ccc;
+}
+#header .mobile-menu-btn:hover .menu-icon{
+    color: #000;
+}
 #header .search-btn:hover{
+    cursor: pointer;
     background-color: #f33443;
 }
+#header .menu-icon,
 #header .search-icon{
     color: #ffff;
     font-size: 20px;
@@ -193,9 +210,12 @@ font-size: 14px;
 }
 #content .content-section{
     width: 800px;
+    max-width: 100%;
     padding: 64px 0 112px;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 #content .section-heading{
     font-size: 30px;
